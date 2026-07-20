@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css?v=31">
+
+    <!-- Firebase: 진짜 방명록 -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js?v=31"></script>
+    <script src="script.js?v=31" defer></script>
+</head>
+
+<body>
+
+    <div class="paper-texture"></div>
+    <div id="particles"></div>
+
+    <!-- 첫 화면 -->
+    <section class="landing" id="landing">
+
+        <button class="book" id="book" type="button" aria-label="책 열기">
+            <span class="book-spine"></span>
+
+            <span class="book-cover">
+                <span class="book-small">A SPECIAL STORY</span>
+                <span class="book-title">HBD</span>
+                <span class="book-line"></span>
+                <span class="book-year">2026</span>
+            </span>
+        </button>
+
+        <p class="guide">책을 눌러 이야기를 시작하세요.</p>
+
+    </section>
+
+    <!-- 오프닝 -->
+    <section class="opening" id="opening">
+
+        <div class="opening-inner">
+
+            <p class="opening-small">FOR YOUR SPECIAL DAY</p>
+
+            <h1>Happy Birthday</h1>
+
+            <p class="opening-description">
+                Every stage tells a story.<br>
+                오늘의 이야기가 오래도록 반짝이기를.
+            </p>
+
+            <button id="startBtn" class="start-button" type="button">
+                Begin
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- 갤러리 -->
+    <main id="mainContent">
+
+        <section class="section gallery" id="gallery">
+
+            <p class="section-small">OUR MEMORIES</p>
+            <h2>Gallery</h2>
+
+            <div class="gallery-grid">
+
+                <figure class="photo reveal">
+                    <img src="1.jpg" alt="사진 1">
+                </figure>
+
+                <figure class="photo reveal">
+                    <img src="2.jpg" alt="사진 2">
+                </figure>
+
+                <figure class="photo reveal">
+                    <img src="3.jpg" alt="사진 3">
+                </figure>
+
+                <figure class="photo reveal">
+                    <img src="4.jpg" alt="사진 4">
+                </figure>
+
+                <figure class="photo reveal">
+                    <img src="5.jpg" alt="사진 5">
+                </figure>
+
+                <figure class="photo reveal">
+                    <img src="6.jpg" alt="사진 6">
+                </figure>
+
+                <figure class="photo reveal">
+                    <img src="7.jpg" alt="사진 7">
+                </figure>
+
+                <figure class="photo reveal">
+                    <img src="8.jpg" alt="사진 8">
+                </figure>
+
+                <figure class="photo reveal">
+                    <img src="9.jpg" alt="사진 9">
+                </figure>
+
+                <figure class="photo reveal">
+                    <img src="10.jpg" alt="사진 10">
+                </figure>
+
+            </div>
+
+        </section>
+
+        <!-- 작품 -->
+        <section class="section works" id="works">
+
+            <p class="section-small">EVERY BEAUTIFUL MOMENT</p>
+            <h2>Works</h2>
+
+            <div class="timeline">
+
+                <article class="work reveal">
+                    <span class="timeline-dot"></span>
+                    <div>
+                        <h3>2015</h3>
+                        <p>Debut</p>
+                    </div>
+                </article>
+
+                <article class="work reveal">
+                    <span class="timeline-dot"></span>
+                    <div>
+                        <h3>2016</h3>
+                        <p>우연히 행복해지다</p>
+                    </div>
+                </article>
+
+                <article class="work reveal">
+                    <span class="timeline-dot"></span>
+                    <div>
+                        <h3>2017, 2018</h3>
+                        <p>작업의 정석,체인징 파트너</p>
+                    </div>
+                </article>
+
+                <article class="work reveal">
+                    <span class="timeline-dot"></span>
+                    <div>
+                        <h3>2019</h3>
+                        <p>jtn&브라비</p>
+                    </div>
+                </article>
+
+                <article class="work reveal">
+                    <span class="timeline-dot"></span>
+                    <div>
+                        <h3>2020</h3>
+                        <p>비행기 타고 가요, 아모르파티, 연애하기 좋은날</p>
+                    </div>
+                </article>
+                
+                <article class="work reveal">
+                    <span class="timeline-dot"></span>
+                    <div>
+                        <h3>2021</h3>
+                        <p>우리는 살아있습니다, 금악</p>
+                    </div>
+                </article>
+                
+                <article class="work reveal">
+                    <span class="timeline-dot"></span>
+                    <div>
+                        <h3>2022</h3>
+                        <p>내일의 주인공, 성냥공장아가씨, 써니텐</p>
+                    </div>
+                </article>
+                
+                <article class="work reveal">
+                    <span class="timeline-dot"></span>
+                    <div>
+                        <h3>2023</h3>
+                        <p> 썸데이, 체인징 파트너</p>
+                    </div>
+                </article>
+                
+                <article class="work reveal">
+                    <span class="timeline-dot"></span>
+                    <div>
+                        <h3>2024</h3>
+                        <p>하트시그널, 썸데이</p>
+                    </div>
+                </article>
+                
+                <article class="work reveal">
+                    <span class="timeline-dot"></span>
+                    <div>
+                        <h3>2025</h3>
+                        <p>어서오세요, 휴남동 서점입니다, 썸데이</p>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- 편지 -->
+        <section class="section letter" id="letter">
+
+            <p class="section-small">A LETTER FOR YOU</p>
+            <h2>Letter</h2>
+
+            <div class="letter-envelope reveal" id="letterEnvelope">
+
+                <div class="envelope-flap"></div>
+
+                <div class="letter-paper">
+
+                    <p class="letter-message">
+                        생일을 진심으로 축하드립니다!<br><br>
+
+                        무대 위에서 보여주신 모든 순간들이<br>
+                        누군가에게는 큰 위로가 되고<br>
+                        또 누군가에게는 오래 기억될 추억이 되었어요<br><br>
+
+                        앞으로 펼쳐질 모든 계절과 무대가<br>
+                        지금보다 더욱 찬란하기를 바라요!<br><br>
+
+                        언제나 응원하겠습니다<br><br>
+
+                        <span>Happy Birthday.</span>
+                    </p>
+
+                </div>
+
+                <button
+                    class="letter-open-button"
+                    id="letterOpenButton"
+                    type="button"
+                >
+                    편지 열기
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- 방명록 -->
+        <section class="section guestbook" id="guestbook">
+            <p class="section-small">LEAVE A LITTLE LOVE</p>
+            <h2>Guestbook</h2>
+
+            <div class="guestbook-card reveal">
+                <form id="guestbookForm" class="guestbook-form">
+                    <label class="sr-only" for="guestName">이름</label>
+                    <input
+                        id="guestName"
+                        name="guestName"
+                        type="text"
+                        maxlength="20"
+                        placeholder="이름 또는 닉네임"
+                        autocomplete="nickname"
+                        required
+                    >
+
+                    <label class="sr-only" for="guestMessage">축하 메시지</label>
+                    <textarea
+                        id="guestMessage"
+                        name="guestMessage"
+                        maxlength="180"
+                        placeholder="따뜻한 축하 메시지를 남겨주세요."
+                        required
+                    ></textarea>
+
+                    <div class="guestbook-form-bottom">
+                        <span id="messageCount">0 / 180</span>
+                        <button type="submit">마음 남기기</button>
+                    </div>
+                </form>
+
+                <p class="guestbook-note">
+                    모두에게 함께 보이는 실시간 방명록입니다.
+                </p>
+
+                <div id="guestbookList" class="guestbook-list" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <!-- 엔딩 -->
+        <section class="ending" id="ending">
+            <canvas id="fireworksCanvas" aria-hidden="true"></canvas>
+            <div class="ending-vignette"></div>
+            <div class="ending-stars" aria-hidden="true"></div>
+            <div class="ending-content">
+
+            <p class="ending-small">MAY ALL YOUR DAYS SHINE</p>
+
+            <h2>For Your Beautiful Day</h2>
+
+            <p>
+                앞으로의 모든 날도<br>
+                배우님답게 환하게 빛나기를
+            </p>
+
+            <span class="ending-heart">♡</span>
+
+            <button id="replayEnding" class="replay-ending" type="button">
+                다시 반짝이기
+            </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- 배경음악 -->
+    <audio id="bgm" loop preload="metadata">
+        <source src="bgm.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="musicBtn" class="music-button" type="button">
+        ♪ Music OFF
+    </button>
+
+</body>
+</html>
