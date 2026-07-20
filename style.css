@@ -83,10 +83,17 @@ font-size:15px;
 
 .opening{
 display:none;
-height:100vh;
+min-height:100vh;
 justify-content:center;
 align-items:center;
 text-align:center;
+position:relative;
+z-index:10;
+background:#f8f4ec;
+}
+
+.opening.active{
+display:flex;
 }
 
 .opening.active{
