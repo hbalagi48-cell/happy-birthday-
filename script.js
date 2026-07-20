@@ -91,3 +91,52 @@ opening.innerHTML=`
 `;
 
 });
+// Gallery Fade In
+
+const photos=document.querySelectorAll(".photo");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate([
+
+{
+
+opacity:0,
+
+transform:"translateY(50px)"
+
+},
+
+{
+
+opacity:1,
+
+transform:"translateY(0)"
+
+}
+
+],{
+
+duration:900,
+
+fill:"forwards"
+
+});
+
+}
+
+});
+
+});
+
+photos.forEach(photo=>{
+
+photo.style.opacity="0";
+
+observer.observe(photo);
+
+});
