@@ -81,3 +81,21 @@ musicBtn.addEventListener("click", () => {
     }
     isPlaying = !isPlaying;
 });
+
+const bgm = document.getElementById("bgm");
+const musicBtn = document.getElementById("musicBtn");
+
+musicBtn.addEventListener("click", async () => {
+    if (bgm.paused) {
+        try {
+            await bgm.play();
+            musicBtn.textContent = "🎵 Music ON";
+        } catch (error) {
+            alert("음악 파일을 재생할 수 없습니다.");
+            console.error(error);
+        }
+    } else {
+        bgm.pause();
+        musicBtn.textContent = "🎵 Music OFF";
+    }
+});
