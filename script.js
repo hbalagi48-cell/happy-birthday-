@@ -52,3 +52,16 @@ for(let i=0;i<40;i++){
     particles.appendChild(p);
 
 }
+
+const letterEnvelope = document.getElementById("letterEnvelope");
+const letterOpenButton = document.getElementById("letterOpenButton");
+
+letterOpenButton.addEventListener("click", () => {
+    letterEnvelope.classList.toggle("open");
+
+    if(letterEnvelope.classList.contains("open")){
+        letterOpenButton.textContent = "편지 닫기";
+    }else{
+        letterOpenButton.textContent = "편지 열기";
+    }
+});
