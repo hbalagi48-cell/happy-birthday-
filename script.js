@@ -1,101 +1,135 @@
-const landing = document.querySelector(".landing");
-const opening = document.getElementById("opening");
-const gallery = document.getElementById("gallery");
+"use strict";
 
-const book = document.getElementById("book");
-const startBtn = document.getElementById("startBtn");
+document.addEventListener("DOMContentLoaded", () => {
+    const landing = document.getElementById("landing");
+    const book = document.getElementById("book");
+    const opening = document.getElementById("opening");
+    const startBtn = document.getElementById("startBtn");
+    const gallery = document.getElementById("gallery");
 
-book.addEventListener("click", () => {
-    landing.style.display = "none";
-    opening.classList.add("active");
-});
+    const letterEnvelope = document.getElementById("letterEnvelope");
+    const letterOpenButton = document.getElementById("letterOpenButton");
 
-const works = document.getElementById("works");
+    const bgm = document.getElementById("bgm");
+    const musicBtn = document.getElementById("musicBtn");
 
-startBtn.addEventListener("click", () => {
-    opening.classList.remove("active");
+    const particles = document.getElementById("particles");
 
-    gallery.style.display = "block";
-    works.style.display = "block";
+    /* 책 클릭 */
 
-    window.scrollTo({
-        top: gallery.offsetTop,
-        behavior: "smooth"
-    });
-});
-
-const particles = document.getElementById("particles");
-
-for(let i=0;i<40;i++){
-
-    const p=document.createElement("div");
-
-    p.style.position="absolute";
-    p.style.width=Math.random()*6+3+"px";
-    p.style.height=p.style.width;
-    p.style.left=Math.random()*100+"%";
-    p.style.top=Math.random()*100+"%";
-    p.style.background="rgba(255,255,255,.8)";
-    p.style.borderRadius="50%";
-
-    p.animate(
-    [
-        {transform:"translateY(0px)",opacity:.2},
-        {transform:"translateY(-100px)",opacity:1},
-        {transform:"translateY(-200px)",opacity:.2}
-    ],
-    {
-        duration:4000+Math.random()*3000,
-        iterations:Infinity
-    });
-
-    particles.appendChild(p);
-
-}
-
-const letterEnvelope = document.getElementById("letterEnvelope");
-const letterOpenButton = document.getElementById("letterOpenButton");
-
-letterOpenButton.addEventListener("click", () => {
-    letterEnvelope.classList.toggle("open");
-
-    if(letterEnvelope.classList.contains("open")){
-        letterOpenButton.textContent = "편지 닫기";
-    }else{
-        letterOpenButton.textContent = "편지 열기";
+    if (book && landing && opening) {
+        book.addEventListener("click", () => {
+            landing.classList.add("hidden");
+            opening.classList.add("show");
+        });
     }
-});
 
-const bgm = document.getElementById("bgm");
-const musicBtn = document.getElementById("musicBtn");
+    /* Begin 클릭 */
 
-let isPlaying = false;
+    if (startBtn && opening && gallery) {
+        startBtn.addEventListener("click", () => {
+            opening.classList.remove("show");
+            opening.classList.add("finished");
 
-musicBtn.addEventListener("click", () => {
-    if (isPlaying) {
-        bgm.pause();
-        musicBtn.textContent = "🎵 Music OFF";
+            setTimeout(() => {
+                gallery.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }, 300);
+        });
+    }
+
+    /* 편지 열기 */
+
+    if (letterEnvelope && letterOpenButton) {
+        letterOpenButton.addEventListener("click", () => {
+            const isOpen = letterEnvelope.classList.toggle("open");
+
+            letterOpenButton.textContent = isOpen
+                ? "편지 닫기"
+                : "편지 열기";
+        });
+    }
+
+    /* 음악 */
+
+    if (bgm && musicBtn) {
+        musicBtn.addEventListener("click", async () => {
+            if (bgm.paused) {
+                try {
+                    await bgm.play();
+
+                    musicBtn.textContent = "♪ Music ON";
+                    musicBtn.classList.add("playing");
+                } catch (error) {
+                    console.error("음악 재생 실패:", error);
+                    alert("bgm.mp3 파일이 제대로 업로드됐는지 확인해 주세요.");
+                }
+            } else {
+                bgm.pause();
+
+                musicBtn.textContent = "♪ Music OFF";
+                musicBtn.classList.remove("playing");
+            }
+        });
+
+        bgm.addEventListener("ended", () => {
+            musicBtn.textContent = "♪ Music OFF";
+            musicBtn.classList.remove("playing");
+        });
+    }
+
+    /* 스크롤 등장 효과 */
+
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+        revealItems.forEach((item) => {
+            observer.observe(item);
+        });
     } else {
-        bgm.play();
-        musicBtn.textContent = "🎵 Music ON";
+        revealItems.forEach((item) => {
+            item.classList.add("visible");
+        });
     }
-    isPlaying = !isPlaying;
-});
 
-const bgm = document.getElementById("bgm");
-const musicBtn = document.getElementById("musicBtn");
+    /* 꽃잎 효과 */
 
-musicBtn.addEventListener("click", async () => {
-    if (bgm.paused) {
-        try {
-            await bgm.play();
-            musicBtn.textContent = "🎵 Music ON";
-        } catch (error) {
-            alert("음악 파일을 재생할 수 없습니다.");
-            console.error(error);
+    function createPetal() {
+        if (!particles) {
+            return;
         }
-    } else {
-        bgm.pause();
-        musicBtn.textContent = "🎵 Music OFF";
+
+        const petal = document.createElement("span");
+        petal.className = "petal";
+
+        petal.style.left = `${Math.random() * 100}%`;
+        petal.style.animationDuration = `${6 + Math.random() * 5}s`;
+        petal.style.animationDelay = `${Math.random() * 2}s`;
+        petal.style.opacity = `${0.35 + Math.random() * 0.5}`;
+        petal.style.transform = `scale(${0.7 + Math.random() * 0.8})`;
+
+        particles.appendChild(petal);
+
+        setTimeout(() => {
+            petal.remove();
+        }, 13000);
     }
+
+    setInterval(createPetal, 700);
 });
