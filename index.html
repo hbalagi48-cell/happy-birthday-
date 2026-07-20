@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Memory Book</title>
 
 <style>
 body {
     margin: 0;
     background: #ffe6f2;
-    font-family: "Pretendard", sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
 }
 
@@ -24,61 +25,59 @@ h1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
-}
-
-.book img {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    transition: 0.3s;
-}
-
-.book img:hover {
-    transform: scale(1.05);
-}
-    .book {
     perspective: 1200px;
 }
 
-.book img {
+.page {
+    transition: 0.5s;
+}
+
+.page img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     cursor: pointer;
 }
 
-.book img:active {
-    transform: rotateY(-25deg) scale(1.03);
+.page:hover {
+    transform: rotateY(-15deg) scale(1.05);
 }
-</style>
 
+</style>
 </head>
+
 
 <body>
 
 <h1>✨ My Memory Book ✨</h1>
 
 <div class="book">
-    <div class="page">
-        <img src="images/1.jpg">
-    </div>
 
-    <div class="page">
-        <img src="images/2.jpg">
-    </div>
-
-    <div class="page">
-        <img src="images/3.jpg">
-    </div>
-
-    <div class="page">
-        <img src="images/4.jpg">
-    </div>
-
-    <div class="page">
-        <img src="images/5.jpg">
-    </div>
-
-    <div class="page">
-        <img src="images/6.jpg">
-    </div>
+<div class="page">
+<img src="images/1.jpg">
 </div>
+
+<div class="page">
+<img src="images/2.jpg">
+</div>
+
+<div class="page">
+<img src="images/3.jpg">
+</div>
+
+<div class="page">
+<img src="images/4.jpg">
+</div>
+
+<div class="page">
+<img src="images/5.jpg">
+</div>
+
+<div class="page">
+<img src="images/6.jpg">
+</div>
+
+</div>
+
 </body>
 </html>
