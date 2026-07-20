@@ -1,425 +1,157 @@
-/* ===========================
-   HBD Project
-   Chapter 1
-=========================== */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    background:#F7F2EB;
-    font-family:'Noto Sans KR',sans-serif;
-    height:100vh;
-    overflow:hidden;
-    position:relative;
+background:#f8f4ec;
+font-family:'Pretendard',sans-serif;
+overflow-x:hidden;
+color:#333;
 }
 
-/* 종이 느낌 배경 */
 .paper{
-    position:fixed;
-    inset:0;
-    background:
-    radial-gradient(circle at top,#fffdfb 0%,#f7f2eb 65%);
+position:fixed;
+width:100%;
+height:100%;
+background:#f8f4ec;
+z-index:-2;
 }
-
-/* 가운데 정렬 */
-.landing{
-    width:100%;
-    height:100vh;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    position:relative;
-    z-index:10;
-}
-
-/* 책 */
-
-.book{
-
-    width:220px;
-    height:300px;
-
-    position:relative;
-
-    cursor:pointer;
-
-    transition:.45s ease;
-
-    animation:float 6s ease-in-out infinite;
-
-}
-
-/* 마우스 올리면 */
-
-.book:hover{
-
-    transform:translateY(-6px) scale(1.03);
-
-}
-
-/* 책등 */
-
-.spine{
-
-    position:absolute;
-
-    left:-12px;
-
-    width:14px;
-
-    height:100%;
-
-    background:#e7b4c4;
-
-    border-radius:8px 0 0 8px;
-
-}
-
-/* 표지 */
-
-.cover{
-
-    width:100%;
-    height:100%;
-
-    border-radius:10px;
-
-    background:
-    linear-gradient(
-    145deg,
-    #f8d8e1,
-    #efc0cf
-    );
-
-    box-shadow:
-    0 35px 70px rgba(0,0,0,.12),
-    inset 0 0 0 1px rgba(255,255,255,.45);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-}
-
-/* 제목 */
-
-.cover h1{
-
-    font-family:'Cormorant Garamond',serif;
-
-    color:#D8B36A;
-
-    font-size:58px;
-
-    letter-spacing:10px;
-
-    font-weight:600;
-
-}
-
-/* 안내문 */
-
-.guide{
-
-    margin-top:38px;
-
-    color:#756e67;
-
-    font-size:14px;
-
-    letter-spacing:1px;
-
-}
-
-/* 흰색 전환 */
-
-.transition{
-
-    position:fixed;
-
-    inset:0;
-
-    background:white;
-
-    opacity:0;
-
-    pointer-events:none;
-
-}
-
-/* 둥실 */
-
-@keyframes float{
-
-0%{
-
-transform:translateY(0px);
-
-}
-
-50%{
-
-transform:translateY(-15px);
-
-}
-
-100%{
-
-transform:translateY(0px);
-
-}
-
-}
-/* =====================
-   입자 효과
-===================== */
 
 #particles{
-
 position:fixed;
-inset:0;
+width:100%;
+height:100%;
 pointer-events:none;
-overflow:hidden;
-
+z-index:-1;
 }
 
-.particle{
+.landing{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
 
+.book{
+width:180px;
+height:240px;
+position:relative;
+cursor:pointer;
+animation:float 3s ease-in-out infinite;
+}
+
+.cover{
+width:100%;
+height:100%;
+background:#f2b6c8;
+border-radius:8px;
+display:flex;
+justify-content:center;
+align-items:center;
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+transition:.4s;
+}
+
+.cover:hover{
+transform:scale(1.05);
+}
+
+.cover h1{
+font-family:'Cormorant Garamond',serif;
+font-size:55px;
+color:white;
+letter-spacing:6px;
+}
+
+.spine{
 position:absolute;
-
-border-radius:50%;
-
-opacity:.6;
-
-animation:floatParticle linear forwards;
-
-filter:blur(.4px);
-
+left:-8px;
+width:8px;
+height:100%;
+background:#d68ea5;
+border-radius:8px 0 0 8px;
 }
 
-@keyframes floatParticle{
-
-0%{
-
-transform:
-translateY(0px);
-
-opacity:0;
-
+.guide{
+margin-top:35px;
+color:#777;
+font-size:15px;
 }
-
-10%{
-
-opacity:.8;
-
-}
-
-100%{
-
-transform:
-translateY(-120vh);
-
-opacity:0;
-
-}
-
-}
-/* ======================
-Opening
-====================== */
 
 .opening{
-
-position:fixed;
-
-inset:0;
-
-background:#F7F2EB;
-
-display:flex;
-
+display:none;
+height:100vh;
 justify-content:center;
-
 align-items:center;
-
-opacity:0;
-
-visibility:hidden;
-
-transition:1s;
-
-z-index:999;
-
-}
-
-.opening.show{
-
-opacity:1;
-
-visibility:visible;
-
-}
-
-.opening-content{
-
 text-align:center;
+}
 
+.opening.active{
+display:flex;
 }
 
 .opening h2{
-
+font-size:60px;
 font-family:'Cormorant Garamond',serif;
-
-font-size:72px;
-
-font-weight:600;
-
-color:#4d4742;
-
-margin-bottom:18px;
-
-letter-spacing:4px;
-
-animation:fadeUp 1.8s ease;
-
+margin-bottom:15px;
 }
 
-.quote{
-
-font-size:18px;
-
-color:#7b756d;
-
-margin-bottom:45px;
-
-animation:fadeUp 2.2s ease;
-
+.opening p{
+margin-bottom:30px;
+color:#777;
 }
 
-#enter{
-
-padding:14px 34px;
-
+button{
+padding:15px 35px;
 border:none;
-
-border-radius:999px;
-
-background:white;
-
-font-size:15px;
-
+border-radius:30px;
+background:#f2b6c8;
+color:white;
+font-size:16px;
 cursor:pointer;
-
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-transition:.3s;
-
 }
-
-#enter:hover{
-
-transform:translateY(-3px);
-
-}
-
-@keyframes fadeUp{
-
-from{
-
-opacity:0;
-
-transform:translateY(25px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-/* Gallery */
 
 .gallery{
+display:none;
+padding:100px 10%;
+}
 
-padding:120px 8%;
-
-background:#faf6f1;
-
+.gallery.active{
+display:block;
 }
 
 .gallery h2{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:60px;
-
 text-align:center;
-
-margin-bottom:70px;
-
-color:#514c47;
-
+font-size:42px;
+margin-bottom:50px;
+font-family:'Cormorant Garamond',serif;
 }
 
 .gallery-grid{
-
 display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-gap:30px;
-
-}
-
-.photo{
-
-overflow:hidden;
-
-border-radius:20px;
-
-box-shadow:0 20px 50px rgba(0,0,0,.08);
-
-cursor:pointer;
-
-transition:.4s;
-
-background:white;
-
-}
-
-.photo:hover{
-
-transform:translateY(-8px);
-
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
 }
 
 .photo img{
-
 width:100%;
-
+border-radius:18px;
 display:block;
-
-transition:.5s;
-
+box-shadow:0 15px 30px rgba(0,0,0,.12);
+transition:.3s;
 }
 
-.photo:hover img{
+.photo img:hover{
+transform:scale(1.03);
+}
 
-transform:scale(1.08);
+@keyframes float{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+100%{transform:translateY(0);}
 
 }
