@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,17 +17,47 @@ body {
     display:flex;
     justify-content:center;
     align-items:center;
+    overflow:hidden;
 }
+
+
+/* 별 효과 */
+
+.star {
+    position:absolute;
+    width:7px;
+    height:7px;
+    background:white;
+    border-radius:50%;
+    animation:move 4s infinite;
+}
+
+
+@keyframes move {
+
+0% {
+opacity:0;
+transform:translateY(100px);
+}
+
+50% {
+opacity:1;
+}
+
+100% {
+opacity:0;
+transform:translateY(-300px);
+}
+
+}
+
 
 
 .book {
 
 width:350px;
-
 height:480px;
-
 position:relative;
-
 perspective:1500px;
 
 }
@@ -36,28 +67,18 @@ perspective:1500px;
 .page {
 
 position:absolute;
-
 width:100%;
-
 height:100%;
-
-background:white;
-
+background:#fffafa;
 border-radius:20px;
-
 box-shadow:0 15px 40px #ccc;
-
-transform-origin:left;
-
-transition:1s;
-
 display:flex;
-
-justify-content:center;
-
-align-items:center;
-
 flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+transition:1s;
+transform-origin:left;
 
 }
 
@@ -65,29 +86,10 @@ flex-direction:column;
 
 .page img {
 
-width:80%;
-
-height:65%;
-
+width:75%;
+height:55%;
 object-fit:cover;
-
 border-radius:15px;
-
-}
-
-
-
-.page h2 {
-
-color:#df6aa7;
-
-}
-
-
-
-.page p {
-
-color:#b77;
 
 }
 
@@ -95,7 +97,7 @@ color:#b77;
 
 .page:hover {
 
-transform:rotateY(-120deg);
+transform:rotateY(-130deg);
 
 }
 
@@ -104,37 +106,35 @@ transform:rotateY(-120deg);
 .cover {
 
 background:linear-gradient(135deg,#ff8fc7,#ffc5df);
-
 color:white;
-
-font-size:40px;
-
+font-size:35px;
 font-weight:bold;
-
 z-index:10;
 
 }
 
 
 
-.page1 {
-z-index:9;
+.end {
+
+background:#fff0f7;
+color:#d45a9e;
+font-size:18px;
+line-height:2;
+
 }
 
-.page2 {
-z-index:8;
-}
 
-.page3 {
-z-index:7;
-}
 
-.page4 {
-z-index:6;
-}
+button {
 
-.page5 {
-z-index:5;
+border:0;
+background:#f48fb1;
+color:white;
+padding:12px 30px;
+border-radius:30px;
+margin-top:20px;
+
 }
 
 
@@ -147,78 +147,103 @@ z-index:5;
 <body>
 
 
+<div class="star" style="left:20%"></div>
+<div class="star" style="left:50%;animation-delay:1s"></div>
+<div class="star" style="left:80%;animation-delay:2s"></div>
+
+
 
 <div class="book">
 
 
 <div class="page cover">
-💗 Memory Book
+💗 Birthday Book
 </div>
 
 
 
-<div class="page page1">
+<div class="page">
 
 <img src="images/1.jpg">
 
-<h2>First Memory</h2>
+<h2>Precious Moment</h2>
 
-<p>첫 번째 페이지 ✨</p>
+<p>작은 기억들이 모여 하나의 이야기가 되었어요</p>
 
 </div>
 
 
 
-<div class="page page2">
+<div class="page">
 
 <img src="images/2.jpg">
 
-<h2>Beautiful Moment</h2>
+<h2>Thank You</h2>
 
-<p>빛나는 순간</p>
+<p>항상 행복을 줘서 고마워요</p>
 
 </div>
 
 
 
-<div class="page page3">
+<div class="page">
 
 <img src="images/3.jpg">
 
-<h2>Special Day</h2>
+<h2>Shining Day</h2>
 
-<p>소중한 기억</p>
+<p>오늘은 가장 빛나는 날</p>
 
 </div>
 
 
 
-<div class="page page4">
+<div class="page">
 
 <img src="images/4.jpg">
 
-<h2>Always Shine</h2>
+<h2>Forever</h2>
 
-<p>계속 빛나길</p>
+<p>앞으로의 모든 순간도 응원할게요</p>
 
 </div>
 
 
 
-<div class="page page5">
+<div class="page">
 
 <img src="images/5.jpg">
 
-<h2>Thank You</h2>
+<h2>My Wish</h2>
 
-<p>고마운 마음</p>
+<p>행복한 일만 가득하길</p>
+
+</div>
+
+
+
+<div class="page end">
+
+<h1>🎂 Happy Birthday 🎂</h1>
+
+<p>
+당신의 모든 계절이<br>
+따뜻하게 빛나길 바라요 ✨
+</p>
+
+<p>
+2026.00.00
+</p>
+
+<button>
+💗 The End
+</button>
 
 </div>
 
 
 
 </div>
-
 
 
 </body>
