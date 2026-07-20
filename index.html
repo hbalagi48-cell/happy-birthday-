@@ -12,7 +12,6 @@
 body{
 margin:0;
 height:100vh;
-overflow:hidden;
 background:linear-gradient(#ffe4f1,#fff);
 font-family:sans-serif;
 display:flex;
@@ -20,36 +19,6 @@ justify-content:center;
 align-items:center;
 }
 
-
-/* 꽃잎 */
-
-.petal{
-position:absolute;
-top:-20px;
-width:15px;
-height:15px;
-background:#ffb6d9;
-border-radius:100% 0 100% 0;
-animation:fall linear infinite;
-}
-
-
-@keyframes fall{
-
-0%{
-transform:translateY(0) rotate(0deg);
-opacity:1;
-}
-
-100%{
-transform:translateY(100vh) rotate(360deg);
-opacity:0;
-}
-
-}
-
-
-/* 책 */
 
 .book{
 
@@ -66,9 +35,9 @@ perspective:1500px;
 position:absolute;
 width:100%;
 height:100%;
-background:white;
+background:#fffafa;
 border-radius:20px;
-box-shadow:0 20px 50px #ddd;
+box-shadow:0 20px 40px #ddd;
 
 display:flex;
 flex-direction:column;
@@ -82,80 +51,72 @@ transform-origin:left;
 }
 
 
-
 .page:hover{
-
 transform:rotateY(-130deg);
-
 }
 
-
-
-/* 표지 */
 
 .cover{
 
-background:linear-gradient(135deg,#ff8fc7,#ffcce4);
+background:linear-gradient(135deg,#ff8fc7,#ffc9e3);
 color:white;
-font-size:40px;
+font-size:38px;
 font-weight:bold;
 z-index:10;
 
-animation:intro 2s;
-
 }
-
-
-.cover small{
-
-display:block;
-font-size:18px;
-margin-top:20px;
-
-}
-
-
-
-@keyframes intro{
-
-from{
-opacity:0;
-transform:translateY(40px);
-}
-
-to{
-opacity:1;
-}
-
-}
-
 
 
 img{
 
 width:75%;
-height:55%;
+height:50%;
 object-fit:cover;
 border-radius:15px;
 
 }
 
 
+input, textarea{
 
-.letter{
+width:70%;
+padding:10px;
+margin:5px;
 
-padding:30px;
-color:#c85d91;
-line-height:2;
+border:1px solid #ffc0da;
+border-radius:10px;
 
 }
 
 
 
-.end{
+textarea{
 
-background:#fff0f7;
-color:#d45a9e;
+height:70px;
+resize:none;
+
+}
+
+
+
+button{
+
+background:#f48fb1;
+border:0;
+color:white;
+padding:10px 25px;
+border-radius:30px;
+cursor:pointer;
+
+}
+
+
+
+.message{
+
+margin-top:10px;
+font-size:13px;
+color:#c85d91;
 
 }
 
@@ -169,25 +130,12 @@ color:#d45a9e;
 <body>
 
 
-
-<div class="petal" style="left:10%;animation-duration:7s"></div>
-<div class="petal" style="left:30%;animation-duration:9s"></div>
-<div class="petal" style="left:50%;animation-duration:6s"></div>
-<div class="petal" style="left:70%;animation-duration:8s"></div>
-<div class="petal" style="left:90%;animation-duration:10s"></div>
-
-
-
 <div class="book">
 
 
 <div class="page cover">
 
-💗 Birthday Archive
-
-<small>
-For [여진배우님]
-</small>
+💗 Birthday Book
 
 </div>
 
@@ -197,10 +145,12 @@ For [여진배우님]
 
 <img src="images/1.jpg">
 
-<h2>Memory 01</h2>
+<h2>
+Memory
+</h2>
 
 <p>
-소중한 순간
+A special moment ✨
 </p>
 
 </div>
@@ -209,49 +159,63 @@ For [여진배우님]
 
 <div class="page">
 
-<img src="images/2.jpg">
+<h2>💌 Guest Book</h2>
 
-<h2>Memory 02</h2>
+<input id="name" placeholder="이름">
+
+<textarea id="text" placeholder="메시지를 남겨주세요"></textarea>
+
+<button onclick="saveMessage()">
+남기기
+</button>
+
+
+<div class="message" id="message">
+
+</div>
+
+
+</div>
+
+
+
+<div class="page">
+
+<h1>
+✨ Thank You ✨
+</h1>
 
 <p>
-빛나는 하루
+함께 기억해줘서 고마워요 💗
 </p>
 
 </div>
 
 
 
-<div class="page letter">
-
-<h2>💌 Letter</h2>
-
-<p>
-
-항상 많은 사람들에게<br>
-행복을 전해줘서 고마워요.<br><br>
-
-앞으로의 모든 날들이<br>
-따뜻하게 빛나길 바라요.
-
-</p>
-
 </div>
 
 
 
-<div class="page end">
-
-<h1>✨ Thank You ✨</h1>
-
-<p>
-Happy Birthday 💗
-</p>
-
-</div>
+<script>
 
 
-</div>
+function saveMessage(){
 
+let name=document.getElementById("name").value;
+
+let text=document.getElementById("text").value;
+
+
+document.getElementById("message").innerHTML =
+name+" : "+text;
+
+
+}
+
+
+
+</script>
 
 
 </body>
