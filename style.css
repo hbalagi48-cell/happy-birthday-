@@ -181,3 +181,57 @@ transform:translateY(0px);
 }
 
 }
+/* =====================
+   입자 효과
+===================== */
+
+#particles{
+
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+border-radius:50%;
+
+opacity:.6;
+
+animation:floatParticle linear forwards;
+
+filter:blur(.4px);
+
+}
+
+@keyframes floatParticle{
+
+0%{
+
+transform:
+translateY(0px);
+
+opacity:0;
+
+}
+
+10%{
+
+opacity:.8;
+
+}
+
+100%{
+
+transform:
+translateY(-120vh);
+
+opacity:0;
+
+}
+
+}
