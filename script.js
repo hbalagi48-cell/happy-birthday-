@@ -65,3 +65,19 @@ letterOpenButton.addEventListener("click", () => {
         letterOpenButton.textContent = "편지 열기";
     }
 });
+
+const bgm = document.getElementById("bgm");
+const musicBtn = document.getElementById("musicBtn");
+
+let isPlaying = false;
+
+musicBtn.addEventListener("click", () => {
+    if (isPlaying) {
+        bgm.pause();
+        musicBtn.textContent = "🎵 Music OFF";
+    } else {
+        bgm.play();
+        musicBtn.textContent = "🎵 Music ON";
+    }
+    isPlaying = !isPlaying;
+});
