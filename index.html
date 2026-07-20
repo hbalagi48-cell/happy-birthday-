@@ -12,39 +12,23 @@ body {
     margin:0;
     height:100vh;
     overflow:hidden;
-    background:linear-gradient(#ffdcec,#fff);
+    background:linear-gradient(#ffe0ef,#fff);
     font-family:sans-serif;
 }
 
 
-/* 반짝이 */
+/* 음악 버튼 */
 
-.sparkle {
-    position:absolute;
-    width:8px;
-    height:8px;
-    background:white;
-    border-radius:50%;
-    animation: sparkle 3s infinite;
-}
-
-
-@keyframes sparkle {
-
-0% {
-    opacity:0;
-    transform:translateY(0) scale(0);
-}
-
-50% {
-    opacity:1;
-}
-
-100% {
-    opacity:0;
-    transform:translateY(-300px) scale(1.5);
-}
-
+.music {
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#f48fb1;
+    color:white;
+    padding:12px 20px;
+    border-radius:30px;
+    cursor:pointer;
+    z-index:20;
 }
 
 
@@ -52,48 +36,29 @@ body {
 /* 첫 화면 */
 
 .intro {
-
-height:100vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-position:relative;
-
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 
 
 h1 {
-
-color:#df6aa7;
-
-font-size:48px;
-
+    color:#df6aa7;
+    font-size:50px;
 }
 
 
 
 button {
-
-background:#f48fb1;
-
-color:white;
-
-border:0;
-
-padding:15px 40px;
-
-border-radius:40px;
-
-font-size:18px;
-
-cursor:pointer;
-
+    margin-top:20px;
+    background:#f48fb1;
+    color:white;
+    border:0;
+    padding:15px 40px;
+    border-radius:40px;
+    font-size:17px;
 }
 
 
@@ -142,9 +107,9 @@ transition:1.5s;
 
 display:flex;
 
-justify-content:center;
-
 align-items:center;
+
+justify-content:center;
 
 color:white;
 
@@ -165,17 +130,19 @@ transform:rotateY(-140deg);
 
 .pages {
 
+background:#fff8fc;
+
 width:100%;
 
 height:100%;
-
-background:#fff8fc;
 
 border-radius:20px;
 
 padding:20px;
 
 box-sizing:border-box;
+
+text-align:center;
 
 }
 
@@ -192,7 +159,6 @@ gap:10px;
 }
 
 
-
 .photos img {
 
 width:100%;
@@ -207,19 +173,27 @@ border-radius:10px;
 
 
 
+/* 편지 */
+
 .letter {
+
+display:none;
 
 margin-top:15px;
 
-background:white;
+background:#fff;
 
-padding:15px;
+padding:20px;
 
-border-radius:15px;
+border-radius:20px;
+
+box-shadow:0 5px 20px #ddd;
 
 color:#c85d91;
 
-display:none;
+line-height:1.8;
+
+font-size:14px;
 
 }
 
@@ -233,13 +207,14 @@ display:none;
 <body>
 
 
-<!-- 반짝이 -->
+<div class="music" onclick="musicPlay()">
+🎵 Music
+</div>
 
-<div class="sparkle" style="left:10%;top:80%;"></div>
-<div class="sparkle" style="left:25%;top:90%;animation-delay:1s;"></div>
-<div class="sparkle" style="left:50%;top:85%;animation-delay:2s;"></div>
-<div class="sparkle" style="left:75%;top:90%;animation-delay:.5s;"></div>
-<div class="sparkle" style="left:90%;top:80%;animation-delay:1.5s;"></div>
+
+<audio id="bgm" loop>
+<source src="music.mp3">
+</audio>
 
 
 
@@ -247,7 +222,7 @@ display:none;
 
 <h1>✨ Memory Archive ✨</h1>
 
-<p>A special little exhibition</p>
+<p>A special gift for you</p>
 
 <button onclick="openBook()">
 Open Book 💗
@@ -259,12 +234,14 @@ Open Book 💗
 
 <div class="book" id="book">
 
+
 <div class="cover">
-Birthday Book
+My Story
 </div>
 
 
 <div class="pages">
+
 
 <div class="photos">
 
@@ -277,18 +254,23 @@ Birthday Book
 
 </div>
 
-<button onclick="showLetter()">
-💌 Open Letter
+
+<button onclick="letterOpen()">
+💌 Letter
 </button>
 
 
 <div class="letter" id="letter">
 
-<h3>To. My Favorite Person</h3>
+<h3>To. My Star ✨</h3>
 
 <p>
-항상 행복한 순간을 만들어줘서 고마워요.<br>
-당신의 하루가 가장 빛나는 날이 되길 바라요 💗
+항상 많은 사람들에게 행복을 전해줘서 고마워요.<br><br>
+
+당신이 걸어온 모든 순간들이 빛났고,<br>
+앞으로의 모든 날들도 따뜻하게 빛나길 바라요.<br><br>
+
+생일 진심으로 축하해요 💗
 </p>
 
 </div>
@@ -302,6 +284,7 @@ Birthday Book
 
 <script>
 
+
 function openBook(){
 
 document.getElementById("intro").style.display="none";
@@ -311,9 +294,28 @@ document.getElementById("book").style.display="block";
 }
 
 
-function showLetter(){
+
+function letterOpen(){
 
 document.getElementById("letter").style.display="block";
+
+}
+
+
+
+function musicPlay(){
+
+let music=document.getElementById("bgm");
+
+if(music.paused){
+
+music.play();
+
+}else{
+
+music.pause();
+
+}
 
 }
 
