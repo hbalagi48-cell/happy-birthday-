@@ -5,78 +5,77 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Memory Archive</title>
+<title>Birthday Archive</title>
 
 <style>
 
-body {
-    margin:0;
-    height:100vh;
-    background:linear-gradient(#ffe0ef,#fff);
-    font-family:sans-serif;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
+body{
+margin:0;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(#ffe4f1,#fff);
+font-family:sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
 
-/* 별 효과 */
+/* 꽃잎 */
 
-.star {
-    position:absolute;
-    width:7px;
-    height:7px;
-    background:white;
-    border-radius:50%;
-    animation:move 4s infinite;
+.petal{
+position:absolute;
+top:-20px;
+width:15px;
+height:15px;
+background:#ffb6d9;
+border-radius:100% 0 100% 0;
+animation:fall linear infinite;
 }
 
 
-@keyframes move {
+@keyframes fall{
 
-0% {
-opacity:0;
-transform:translateY(100px);
-}
-
-50% {
+0%{
+transform:translateY(0) rotate(0deg);
 opacity:1;
 }
 
-100% {
+100%{
+transform:translateY(100vh) rotate(360deg);
 opacity:0;
-transform:translateY(-300px);
 }
 
 }
 
 
+/* 책 */
 
-.book {
+.book{
 
-width:350px;
-height:480px;
+width:360px;
+height:500px;
 position:relative;
 perspective:1500px;
 
 }
 
 
-
-.page {
+.page{
 
 position:absolute;
 width:100%;
 height:100%;
-background:#fffafa;
+background:white;
 border-radius:20px;
-box-shadow:0 15px 40px #ccc;
+box-shadow:0 20px 50px #ddd;
+
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+
 transition:1s;
 transform-origin:left;
 
@@ -84,7 +83,55 @@ transform-origin:left;
 
 
 
-.page img {
+.page:hover{
+
+transform:rotateY(-130deg);
+
+}
+
+
+
+/* 표지 */
+
+.cover{
+
+background:linear-gradient(135deg,#ff8fc7,#ffcce4);
+color:white;
+font-size:40px;
+font-weight:bold;
+z-index:10;
+
+animation:intro 2s;
+
+}
+
+
+.cover small{
+
+display:block;
+font-size:18px;
+margin-top:20px;
+
+}
+
+
+
+@keyframes intro{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+}
+
+}
+
+
+
+img{
 
 width:75%;
 height:55%;
@@ -95,45 +142,20 @@ border-radius:15px;
 
 
 
-.page:hover {
+.letter{
 
-transform:rotateY(-130deg);
-
-}
-
-
-
-.cover {
-
-background:linear-gradient(135deg,#ff8fc7,#ffc5df);
-color:white;
-font-size:35px;
-font-weight:bold;
-z-index:10;
-
-}
-
-
-
-.end {
-
-background:#fff0f7;
-color:#d45a9e;
-font-size:18px;
+padding:30px;
+color:#c85d91;
 line-height:2;
 
 }
 
 
 
-button {
+.end{
 
-border:0;
-background:#f48fb1;
-color:white;
-padding:12px 30px;
-border-radius:30px;
-margin-top:20px;
+background:#fff0f7;
+color:#d45a9e;
 
 }
 
@@ -147,9 +169,12 @@ margin-top:20px;
 <body>
 
 
-<div class="star" style="left:20%"></div>
-<div class="star" style="left:50%;animation-delay:1s"></div>
-<div class="star" style="left:80%;animation-delay:2s"></div>
+
+<div class="petal" style="left:10%;animation-duration:7s"></div>
+<div class="petal" style="left:30%;animation-duration:9s"></div>
+<div class="petal" style="left:50%;animation-duration:6s"></div>
+<div class="petal" style="left:70%;animation-duration:8s"></div>
+<div class="petal" style="left:90%;animation-duration:10s"></div>
 
 
 
@@ -157,7 +182,13 @@ margin-top:20px;
 
 
 <div class="page cover">
-💗 Birthday Book
+
+💗 Birthday Archive
+
+<small>
+For [여진배우님]
+</small>
+
 </div>
 
 
@@ -166,9 +197,11 @@ margin-top:20px;
 
 <img src="images/1.jpg">
 
-<h2>Precious Moment</h2>
+<h2>Memory 01</h2>
 
-<p>작은 기억들이 모여 하나의 이야기가 되었어요</p>
+<p>
+소중한 순간
+</p>
 
 </div>
 
@@ -178,45 +211,29 @@ margin-top:20px;
 
 <img src="images/2.jpg">
 
-<h2>Thank You</h2>
+<h2>Memory 02</h2>
 
-<p>항상 행복을 줘서 고마워요</p>
-
-</div>
-
-
-
-<div class="page">
-
-<img src="images/3.jpg">
-
-<h2>Shining Day</h2>
-
-<p>오늘은 가장 빛나는 날</p>
+<p>
+빛나는 하루
+</p>
 
 </div>
 
 
 
-<div class="page">
+<div class="page letter">
 
-<img src="images/4.jpg">
+<h2>💌 Letter</h2>
 
-<h2>Forever</h2>
+<p>
 
-<p>앞으로의 모든 순간도 응원할게요</p>
+항상 많은 사람들에게<br>
+행복을 전해줘서 고마워요.<br><br>
 
-</div>
+앞으로의 모든 날들이<br>
+따뜻하게 빛나길 바라요.
 
-
-
-<div class="page">
-
-<img src="images/5.jpg">
-
-<h2>My Wish</h2>
-
-<p>행복한 일만 가득하길</p>
+</p>
 
 </div>
 
@@ -224,26 +241,17 @@ margin-top:20px;
 
 <div class="page end">
 
-<h1>🎂 Happy Birthday 🎂</h1>
+<h1>✨ Thank You ✨</h1>
 
 <p>
-배우님의 모든 계절이<br>
-따뜻하게 빛나길 바라요 ✨
+Happy Birthday 💗
 </p>
-
-<p>
-2026.00.00
-</p>
-
-<button>
-💗 The End
-</button>
 
 </div>
 
 
-
 </div>
+
 
 
 </body>
