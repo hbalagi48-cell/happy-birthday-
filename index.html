@@ -3,108 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Book</title>
 
-<title>HBD</title>
+<style>
+body {
+    margin: 0;
+    background: #ffe6f2;
+    font-family: "Pretendard", sans-serif;
+    text-align: center;
+}
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+h1 {
+    margin-top: 50px;
+    color: #d45a9e;
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Pretendard:wght@300;400;500&display=swap" rel="stylesheet">
+.book {
+    width: 80%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
 
-<link rel="stylesheet" href="style.css">
+.book img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.book img:hover {
+    transform: scale(1.05);
+}
+</style>
 
 </head>
 
 <body>
 
-<div class="background"></div>
+<h1>✨ My Memory Book ✨</h1>
 
-<div id="particles"></div>
-
-<section class="landing">
-
-<div class="book" id="book">
-
-<div class="book-shadow"></div>
-
-<div class="spine"></div>
-
-<div class="cover">
-
-<h1>HBD</h1>
-
-<p class="year">2026</p>
-
+<div class="book">
+    <img src="images/1.jpg">
+    <img src="images/2.jpg">
+    <img src="images/3.jpg">
+    <img src="images/4.jpg">
+    <img src="images/5.jpg">
+    <img src="images/6.jpg">
 </div>
 
-</div>
-
-<p class="guide">
-
-책을 눌러 이야기를 시작하세요.
-
-</p>
-
-</section>
-
-<div class="transition" id="transition"></div>
-
-<script src="script.js"></script>
-<!-- Opening -->
-
-<section class="opening" id="opening">
-
-    <div class="opening-content">
-
-        <h2>Happy Birthday</h2>
-
-        <p class="quote">
-
-            Every stage tells a story.
-
-        </p>
-
-        <button id="enter">
-
-            Begin Exhibition
-
-        </button>
-
-    </div>
-
-</section>
-    <section id="gallery" class="gallery">
-
-    <h2>Gallery</h2>
-
-    <div class="gallery-grid">
-
-        <div class="photo">
-            <img src="images/photo1.jpg" alt="">
-        </div>
-
-        <div class="photo">
-            <img src="images/photo2.jpg" alt="">
-        </div>
-
-        <div class="photo">
-            <img src="images/photo3.jpg" alt="">
-        </div>
-
-        <div class="photo">
-            <img src="images/photo4.jpg" alt="">
-        </div>
-
-        <div class="photo">
-            <img src="images/photo5.jpg" alt="">
-        </div>
-
-        <div class="photo">
-            <img src="images/photo6.jpg" alt="">
-        </div>
-
-    </div>
-
-</section>
 </body>
 </html>
