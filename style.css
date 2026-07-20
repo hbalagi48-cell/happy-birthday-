@@ -1,3 +1,8 @@
+/* ===========================
+   HBD Project
+   Chapter 1
+=========================== */
+
 *{
     margin:0;
     padding:0;
@@ -10,95 +15,104 @@ html{
 
 body{
     background:#F7F2EB;
-    overflow:hidden;
     font-family:'Noto Sans KR',sans-serif;
     height:100vh;
+    overflow:hidden;
+    position:relative;
 }
 
-.background{
+/* 종이 느낌 배경 */
+.paper{
     position:fixed;
     inset:0;
     background:
-    radial-gradient(circle at top,#fffdf9 0%,#f7f2eb 60%);
+    radial-gradient(circle at top,#fffdfb 0%,#f7f2eb 65%);
 }
 
+/* 가운데 정렬 */
 .landing{
-
+    width:100%;
     height:100vh;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
 
     position:relative;
-
     z-index:10;
-
 }
+
+/* 책 */
 
 .book{
 
     width:220px;
-
     height:300px;
-
-    cursor:pointer;
 
     position:relative;
 
-    animation:float 5s ease-in-out infinite;
+    cursor:pointer;
 
-    transition:.5s;
+    transition:.45s ease;
+
+    animation:float 6s ease-in-out infinite;
 
 }
+
+/* 마우스 올리면 */
 
 .book:hover{
 
-    transform:scale(1.04);
+    transform:translateY(-6px) scale(1.03);
 
 }
 
-.cover{
-
-    width:100%;
-
-    height:100%;
-
-    background:#F3C9D4;
-
-    border-radius:8px;
-
-    box-shadow:
-    0 30px 60px rgba(0,0,0,.12),
-    inset 0 0 0 1px rgba(255,255,255,.35);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
+/* 책등 */
 
 .spine{
 
     position:absolute;
 
-    left:-10px;
+    left:-12px;
 
     width:14px;
 
     height:100%;
 
-    background:#E8AFC1;
+    background:#e7b4c4;
 
-    border-radius:6px 0 0 6px;
+    border-radius:8px 0 0 8px;
 
 }
+
+/* 표지 */
+
+.cover{
+
+    width:100%;
+    height:100%;
+
+    border-radius:10px;
+
+    background:
+    linear-gradient(
+    145deg,
+    #f8d8e1,
+    #efc0cf
+    );
+
+    box-shadow:
+    0 35px 70px rgba(0,0,0,.12),
+    inset 0 0 0 1px rgba(255,255,255,.45);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+/* 제목 */
 
 .cover h1{
 
@@ -106,19 +120,21 @@ body{
 
     color:#D8B36A;
 
-    font-size:52px;
+    font-size:58px;
 
-    letter-spacing:8px;
+    letter-spacing:10px;
 
     font-weight:600;
 
 }
 
-.subtitle{
+/* 안내문 */
 
-    margin-top:40px;
+.guide{
 
-    color:#7b746d;
+    margin-top:38px;
+
+    color:#756e67;
 
     font-size:14px;
 
@@ -126,7 +142,9 @@ body{
 
 }
 
-.fade{
+/* 흰색 전환 */
+
+.transition{
 
     position:fixed;
 
@@ -140,18 +158,26 @@ body{
 
 }
 
+/* 둥실 */
+
 @keyframes float{
 
 0%{
+
 transform:translateY(0px);
+
 }
 
 50%{
+
 transform:translateY(-15px);
+
 }
 
 100%{
+
 transform:translateY(0px);
+
 }
 
 }
