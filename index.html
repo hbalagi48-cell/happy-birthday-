@@ -256,48 +256,6 @@
 
         </section>
 
-
-        <!-- 방명록 -->
-        <section class="section guestbook" id="guestbook">
-            <p class="section-small">LEAVE A LITTLE LOVE</p>
-            <h2>Guestbook</h2>
-
-            <div class="guestbook-card reveal">
-                <form id="guestbookForm" class="guestbook-form">
-                    <label class="sr-only" for="guestName">이름</label>
-                    <input
-                        id="guestName"
-                        name="guestName"
-                        type="text"
-                        maxlength="20"
-                        placeholder="이름 또는 닉네임"
-                        autocomplete="nickname"
-                        required
-                    >
-
-                    <label class="sr-only" for="guestMessage">축하 메시지</label>
-                    <textarea
-                        id="guestMessage"
-                        name="guestMessage"
-                        maxlength="180"
-                        placeholder="따뜻한 축하 메시지를 남겨주세요."
-                        required
-                    ></textarea>
-
-                    <div class="guestbook-form-bottom">
-                        <span id="messageCount">0 / 180</span>
-                        <button type="submit">마음 남기기</button>
-                    </div>
-                </form>
-
-                <p class="guestbook-note">
-                    모두에게 함께 보이는 실시간 방명록입니다.
-                </p>
-
-                <div id="guestbookList" class="guestbook-list" aria-live="polite"></div>
-            </div>
-        </section>
-
         <!-- 엔딩 -->
         <section class="ending" id="ending">
             <canvas id="fireworksCanvas" aria-hidden="true"></canvas>
