@@ -219,3 +219,106 @@ transform:translateY(-12px);
 transform:translateY(0);
 }
 }
+
+/* Letter */
+
+.letter{
+    min-height:100vh;
+    padding:130px 10%;
+    background:#f8f4ec;
+    text-align:center;
+}
+
+.letter-small-title{
+    font-size:13px;
+    letter-spacing:4px;
+    color:#b58a98;
+    margin-bottom:12px;
+}
+
+.letter h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:48px;
+    margin-bottom:55px;
+}
+
+.letter-envelope{
+    max-width:760px;
+    margin:0 auto;
+    position:relative;
+    padding-top:30px;
+}
+
+.letter-paper{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(35px);
+    background:#fffdf8;
+    border-radius:18px;
+    box-shadow:0 22px 50px rgba(0,0,0,.10);
+    transition:
+        max-height 1.2s ease,
+        opacity .8s ease,
+        transform 1s ease,
+        padding 1s ease;
+}
+
+.letter-envelope.open .letter-paper{
+    max-height:900px;
+    opacity:1;
+    transform:translateY(0);
+    padding:60px;
+}
+
+.letter-message{
+    text-align:left;
+    font-size:17px;
+    line-height:2;
+    color:#5a5053;
+    word-break:keep-all;
+}
+
+.letter-message span{
+    display:block;
+    margin-top:15px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;
+    color:#c58fa3;
+}
+
+.letter-open-button{
+    margin-top:28px;
+    padding:14px 38px;
+    border:none;
+    border-radius:999px;
+    background:#e8aabd;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.letter-open-button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(197,143,163,.25);
+}
+
+@media(max-width:600px){
+    .letter{
+        padding:90px 20px;
+    }
+
+    .letter h2{
+        font-size:40px;
+    }
+
+    .letter-envelope.open .letter-paper{
+        padding:35px 24px;
+    }
+
+    .letter-message{
+        font-size:15px;
+        line-height:1.9;
+    }
+}
