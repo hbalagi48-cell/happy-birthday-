@@ -322,3 +322,23 @@ transform:translateY(0);
         line-height:1.9;
     }
 }
+
+.music-btn{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    background: #f6a8c8;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    z-index: 9999;
+}
+
+.music-btn:hover{
+    background: #f38bb5;
+}
