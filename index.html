@@ -11,75 +11,21 @@
 body {
     margin:0;
     height:100vh;
-    overflow:hidden;
     background:linear-gradient(#ffe0ef,#fff);
     font-family:sans-serif;
-}
-
-
-/* 음악 버튼 */
-
-.music {
-    position:fixed;
-    top:20px;
-    right:20px;
-    background:#f48fb1;
-    color:white;
-    padding:12px 20px;
-    border-radius:30px;
-    cursor:pointer;
-    z-index:20;
-}
-
-
-
-/* 첫 화면 */
-
-.intro {
-    height:100vh;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
 }
 
 
-h1 {
-    color:#df6aa7;
-    font-size:50px;
-}
-
-
-
-button {
-    margin-top:20px;
-    background:#f48fb1;
-    color:white;
-    border:0;
-    padding:15px 40px;
-    border-radius:40px;
-    font-size:17px;
-}
-
-
-
-/* 책 */
-
 .book {
 
-display:none;
+width:350px;
 
-width:380px;
+height:480px;
 
-height:520px;
-
-position:absolute;
-
-top:50%;
-
-left:50%;
-
-transform:translate(-50%,-50%);
+position:relative;
 
 perspective:1500px;
 
@@ -87,114 +33,108 @@ perspective:1500px;
 
 
 
-.cover {
-
-width:100%;
-
-height:100%;
-
-background:linear-gradient(135deg,#ff8fc7,#ffc5df);
-
-border-radius:20px;
+.page {
 
 position:absolute;
 
-z-index:5;
-
-transform-origin:left;
-
-transition:1.5s;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-color:white;
-
-font-size:38px;
-
-font-weight:bold;
-
-}
-
-
-.book:hover .cover {
-
-transform:rotateY(-140deg);
-
-}
-
-
-
-.pages {
-
-background:#fff8fc;
-
 width:100%;
 
 height:100%;
 
+background:white;
+
 border-radius:20px;
 
-padding:20px;
+box-shadow:0 15px 40px #ccc;
 
-box-sizing:border-box;
+transform-origin:left;
 
-text-align:center;
+transition:1s;
 
-}
+display:flex;
 
+justify-content:center;
 
+align-items:center;
 
-.photos {
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:10px;
+flex-direction:column;
 
 }
 
 
-.photos img {
 
-width:100%;
+.page img {
 
-height:120px;
+width:80%;
+
+height:65%;
 
 object-fit:cover;
 
-border-radius:10px;
+border-radius:15px;
 
 }
 
 
 
-/* 편지 */
+.page h2 {
 
-.letter {
+color:#df6aa7;
 
-display:none;
+}
 
-margin-top:15px;
 
-background:#fff;
 
-padding:20px;
+.page p {
 
-border-radius:20px;
+color:#b77;
 
-box-shadow:0 5px 20px #ddd;
+}
 
-color:#c85d91;
 
-line-height:1.8;
 
-font-size:14px;
+.page:hover {
 
+transform:rotateY(-120deg);
+
+}
+
+
+
+.cover {
+
+background:linear-gradient(135deg,#ff8fc7,#ffc5df);
+
+color:white;
+
+font-size:40px;
+
+font-weight:bold;
+
+z-index:10;
+
+}
+
+
+
+.page1 {
+z-index:9;
+}
+
+.page2 {
+z-index:8;
+}
+
+.page3 {
+z-index:7;
+}
+
+.page4 {
+z-index:6;
+}
+
+.page5 {
+z-index:5;
 }
 
 
@@ -207,120 +147,78 @@ font-size:14px;
 <body>
 
 
-<div class="music" onclick="musicPlay()">
-🎵 Music
-</div>
+
+<div class="book">
 
 
-<audio id="bgm" loop>
-<source src="music.mp3">
-</audio>
-
-
-
-<div class="intro" id="intro">
-
-<h1>✨ Memory Archive ✨</h1>
-
-<p>A special gift for you</p>
-
-<button onclick="openBook()">
-Open Book 💗
-</button>
-
+<div class="page cover">
+💗 Memory Book
 </div>
 
 
 
-<div class="book" id="book">
-
-
-<div class="cover">
-My Story
-</div>
-
-
-<div class="pages">
-
-
-<div class="photos">
+<div class="page page1">
 
 <img src="images/1.jpg">
+
+<h2>First Memory</h2>
+
+<p>첫 번째 페이지 ✨</p>
+
+</div>
+
+
+
+<div class="page page2">
+
 <img src="images/2.jpg">
+
+<h2>Beautiful Moment</h2>
+
+<p>빛나는 순간</p>
+
+</div>
+
+
+
+<div class="page page3">
+
 <img src="images/3.jpg">
+
+<h2>Special Day</h2>
+
+<p>소중한 기억</p>
+
+</div>
+
+
+
+<div class="page page4">
+
 <img src="images/4.jpg">
+
+<h2>Always Shine</h2>
+
+<p>계속 빛나길</p>
+
+</div>
+
+
+
+<div class="page page5">
+
 <img src="images/5.jpg">
-<img src="images/6.jpg">
 
-</div>
+<h2>Thank You</h2>
 
-
-<button onclick="letterOpen()">
-💌 Letter
-</button>
-
-
-<div class="letter" id="letter">
-
-<h3>To. My Star ✨</h3>
-
-<p>
-항상 많은 사람들에게 행복을 전해줘서 고마워요.<br><br>
-
-당신이 걸어온 모든 순간들이 빛났고,<br>
-앞으로의 모든 날들도 따뜻하게 빛나길 바라요.<br><br>
-
-생일 진심으로 축하해요 💗
-</p>
-
-</div>
-
-
-</div>
+<p>고마운 마음</p>
 
 </div>
 
 
 
-<script>
+</div>
 
-
-function openBook(){
-
-document.getElementById("intro").style.display="none";
-
-document.getElementById("book").style.display="block";
-
-}
-
-
-
-function letterOpen(){
-
-document.getElementById("letter").style.display="block";
-
-}
-
-
-
-function musicPlay(){
-
-let music=document.getElementById("bgm");
-
-if(music.paused){
-
-music.play();
-
-}else{
-
-music.pause();
-
-}
-
-}
-
-
-</script>
 
 
 </body>
