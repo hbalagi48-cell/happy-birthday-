@@ -1,184 +1,46 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HBD</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Pretendard:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-background:#F8F3EC;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-family:'Pretendard',sans-serif;
-overflow:hidden;
-}
-
-.container{
-text-align:center;
-position:relative;
-}
-
-.book{
-width:220px;
-height:300px;
-background:linear-gradient(145deg,#f5bfd0,#efacc3);
-border-radius:8px;
-box-shadow:
-0 25px 60px rgba(0,0,0,.18),
-0 8px 20px rgba(255,255,255,.6) inset;
-cursor:pointer;
-display:flex;
-justify-content:center;
-align-items:center;
-animation:float 4s ease-in-out infinite;
-transition:.5s;
-position:relative;
-}
-
-.book::before{
-content:"";
-position:absolute;
-left:10px;
-top:0;
-width:8px;
-height:100%;
-background:#e79bb7;
-border-radius:5px;
-}
-
-.book:hover{
-transform:scale(1.04);
-}
-
-.title{
-font-family:'Cormorant Garamond',serif;
-font-size:36px;
-color:#fff8ea;
-letter-spacing:2px;
-text-shadow:0 0 10px rgba(255,255,255,.4);
-}
-
-.text{
-margin-top:35px;
-font-size:14px;
-color:#6c6c6c;
-letter-spacing:1px;
-}
-
-@keyframes float{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-12px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-.dot{
-
-position:absolute;
-border-radius:50%;
-animation:move linear infinite;
-opacity:.6;
-
-}
-
-@keyframes move{
-
-from{
-transform:translateY(0);
-}
-
-to{
-transform:translateY(-120vh);
-}
-
-}
-
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+<div class="background"></div>
 
-<div class="book" onclick="openBook()">
+<div id="particles"></div>
 
-<div class="title">
+<main class="landing">
 
-Bloom
+    <div class="book" id="book">
 
-</div>
+        <div class="spine"></div>
 
-</div>
+        <div class="cover">
 
-<div class="text">
+            <h1>HBD</h1>
 
-책을 눌러 이야기를 시작하세요.
+        </div>
 
-</div>
+    </div>
 
-</div>
+    <p class="subtitle">
+        책을 눌러 이야기를 시작하세요.
+    </p>
 
-<script>
+</main>
 
-function makeDot(){
+<div class="fade" id="fade"></div>
 
-const dot=document.createElement("div");
-
-dot.classList.add("dot");
-
-let size=Math.random()*8+3;
-
-dot.style.width=size+"px";
-dot.style.height=size+"px";
-
-dot.style.left=Math.random()*100+"vw";
-
-dot.style.top="110vh";
-
-dot.style.background=Math.random()>0.5?"#f7bfd2":"#bfe8d7";
-
-dot.style.animationDuration=(Math.random()*10+8)+"s";
-
-document.body.appendChild(dot);
-
-setTimeout(()=>{
-dot.remove();
-},18000);
-
-}
-
-setInterval(makeDot,300);
-
-function openBook(){
-
-alert("다음에는 책이 펼쳐지며 생일 전시가 시작됩니다 :)");
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
