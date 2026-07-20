@@ -10,9 +10,13 @@ book.addEventListener("click", () => {
     opening.classList.add("active");
 });
 
+const works = document.getElementById("works");
+
 startBtn.addEventListener("click", () => {
     opening.classList.remove("active");
-    gallery.classList.add("active");
+
+    gallery.style.display = "block";
+    works.style.display = "block";
 
     window.scrollTo({
         top: gallery.offsetTop,
