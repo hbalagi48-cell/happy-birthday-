@@ -18,9 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
     /* 책 클릭 */
 
     if (book && landing && opening) {
+        let isOpening = false;
+
         book.addEventListener("click", () => {
-            landing.classList.add("hidden");
-            opening.classList.add("show");
+            if (isOpening) {
+                return;
+            }
+
+            isOpening = true;
+            book.classList.add("opening-book");
+
+            setTimeout(() => {
+                landing.classList.add("hidden");
+                opening.classList.add("show");
+            }, 1050);
         });
     }
 

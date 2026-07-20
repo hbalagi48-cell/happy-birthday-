@@ -112,6 +112,48 @@ img {
     transition: transform 0.35s ease;
 }
 
+.book::before {
+    content: "";
+    position: absolute;
+    inset: 8px 7px 8px 20px;
+    border-radius: 5px 15px 15px 5px;
+    background:
+        repeating-linear-gradient(
+            to right,
+            #fffdf7 0,
+            #fffdf7 4px,
+            #f0e5dc 5px
+        );
+    box-shadow:
+        inset -12px 0 18px rgba(91, 55, 67, 0.08),
+        0 8px 20px rgba(91, 55, 67, 0.12);
+    transform: translateX(5px);
+}
+
+.book-cover {
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition:
+        transform 1.05s cubic-bezier(0.22, 0.75, 0.18, 1),
+        filter 0.6s ease;
+    backface-visibility: hidden;
+}
+
+.book.opening-book {
+    animation: none;
+    pointer-events: none;
+}
+
+.book.opening-book .book-cover {
+    transform: perspective(1100px) rotateY(-150deg);
+    filter: brightness(1.06);
+}
+
+.book.opening-book .book-spine {
+    opacity: 0.55;
+    transition: opacity 0.6s ease;
+}
+
 .book:hover {
     transform: translateY(-8px) rotate(-1deg);
 }
@@ -648,4 +690,21 @@ img {
         padding: 11px 15px;
         font-size: 14px;
     }
+}
+
+
+/* 책이 열린 뒤 화면 전환 */
+.landing::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+    background: white;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+}
+
+.landing.hidden::after {
+    opacity: 1;
 }
