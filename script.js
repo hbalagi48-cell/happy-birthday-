@@ -52,18 +52,42 @@ setInterval(createParticle,300);
 // 책 클릭
 // ----------------------
 
+const opening=document.getElementById("opening");
+const enter=document.getElementById("enter");
+
 book.addEventListener("click",()=>{
 
-    book.style.transform="scale(1.18)";
-    book.style.transition="0.8s";
+book.style.transform="scale(1.15)";
+book.style.opacity="0";
 
-    transition.style.opacity="1";
-    transition.style.transition="1.2s";
+transition.style.opacity="1";
 
-    setTimeout(()=>{
+setTimeout(()=>{
 
-        alert("🎂 다음 챕터(Happy Birthday)가 이어질 예정입니다.");
+transition.style.opacity="0";
 
-    },1100);
+opening.classList.add("show");
+
+},1000);
+
+});
+
+enter.addEventListener("click",()=>{
+
+opening.innerHTML=`
+
+<div class="opening-content">
+
+<h2>Gallery</h2>
+
+<p class="quote">
+
+사진이 들어갈 공간입니다.
+
+</p>
+
+</div>
+
+`;
 
 });
